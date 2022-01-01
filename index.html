@@ -5,20 +5,46 @@
   <title>Message Dialog Code Kata</title>
   <meta http-equiv="Content-Security-Policy"
   content="
-    script-src 'self';
-    style-src 'self' https://fonts.googleapis.com 'nonce-0a59a005';
-    font-src 'self' data: https://fonts.gstatic.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+     font-src 'self' https://fonts.gstatic.com;
   "/>
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&amp;display=swap" rel="stylesheet"/>
+  <style>
+    html {
+        font-size: 62.5%;
+    }
+    html body {
+      font-size: 1rem;
+    }
+    .container {
+    clear: both;
+    font-size: 1.6rem;
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+}
+    </style>
 </head>
 <body>
+
   <!-- Insert Custom Component Html -->
   <div class="container">
-    test 
+    <!-- Custom Button -->
+    <custom-button>
+      <div slot="btnTitle">Show Error Message</div>
+    </custom-button>
   </div>
-  <script defer="" src="../css/custom-button.js"></script>
-  <script defer="" src="../css/custom-message.js"></script>
+    <!-- / Custom Button -->
+    <!-- Custom Dialog -->
+    <custom-message-dialog hidden titleImage="./images/error-alert.svg">
+      <div slot="title">Lost connection</div>
+      <div slot="message">This application has experienced a <strong>system error</strong> due to the lack of internet access.
+        <br/><i>Please</i> restart the application in order to proceed.</div>
+  </custom-message-dialog>
+  <script defer="" src="./js/custom-button.js"></script>
+  <script defer="" src="./js/custom-message-dialog.js"></script>
 </body>
 </html>
 
